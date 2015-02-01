@@ -14,9 +14,7 @@ public class Ansatt {
 		this.kontor = kontor;
 	}
 	
-	public static void hallo(){
-		
-	}
+
 	public String getFornavn() {
 		return fornavn;
 	}
