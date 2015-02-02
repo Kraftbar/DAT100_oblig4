@@ -5,7 +5,7 @@ public class Ansatt {
 	private String epostadresse;
 	private String telefon;
 	private Kontor kontor;
-	
+	//test
 	public Ansatt(String fornavn, String etternavn, String epostadresse, String telefon, Kontor kontor) {
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
