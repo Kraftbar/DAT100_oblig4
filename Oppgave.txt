@@ -1,0 +1,31 @@
+DAT100 øving 4: Arrays og Referanser
+
+Læringsmål
+Du skal lære hvordan å bruke arrays og/eller arraylists. Du skal lære hvordan å koble objekter
+sammen gjennom referanser. Du skal lære litt om hvordan å videreutvikle eksisterende klasser.
+Utdelt kode
+
+Klassene «Ansatt» og «Kontor» er delt ut og skal brukes i oppgave d-i. De representerer ansatte og
+kontor i en bedrift.
+
+Oppgaver
+
+a) Skriv en metode som beregner summen av en array av heltall. Metoden skal ta inn en array
+av tall som parameter og returnere en sum av tallene. Et eksempel på signatur vil være
+public static int sum(int[] numbers) { ... })
+b) Skriv en ny versjon av metoden med samme navn i samme klasse som beregner summen av
+en array av flyttall.
+c) Lag en main() metode som bruker metodene fra oppgave a og b.
+d) Modifiser klassen «Kontor» til å lagre en liste (array eller arraylist) av Ansatt-objekter. Lista
+representerer de ansatte som jobber på kontoret.
+e) Lag en konstruktør til «kontor» som tar som ekstra parameter en maksimumsgrense for hvor
+mange ansatte som kan sitte på kontoret. Modifiser den eksisterende konstruktøren slik at
+den setter maksimumsgrensa til 1.
+f) Lag en metode i klassen «Kontor» som lar deg legge til en ansatt til kontoret. Den kalles når
+en ny ansatt begynner å jobbe på kontoret.
+g) Lag en metode i klassen kontor som returnerer lista med ansatte som jobber på kontoret.
+h) Lag en main metode som bruker funksjonene fra oppgave d-g.
+i) Frivillig: Lag en metode i «Ansatt» klassen som skriver ut hvilke ansatte som denne ansatte
+deler kontor med. Endre metoden setKontor() til ansatt slik at den i tillegg til å sette kontoret
+til den ansatte sørger for å oppdatere referansene i kontor-objektene. Det vil si at den
+ansatte skal fjernes fra et eventuelt gammelt kontor og legges til i det nye kontoret.

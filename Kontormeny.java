@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Kontormeny {
 
-
+// legger til en kommentar
 	public static void main(String[] args) {
 		programlokke();
 	}
