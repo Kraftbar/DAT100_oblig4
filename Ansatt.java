@@ -1,5 +1,7 @@
 
 public class Ansatt {
+	private Ansatt [] ansattListe;	
+
 	private String fornavn;
 	private String etternavn;
 	private String epostadresse;
@@ -53,6 +55,11 @@ public class Ansatt {
 
 	public void setKontor(Kontor kontor) {
 		this.kontor = kontor;
+	}
+
+	public void kontorDel(){ // denne skal
+
+
 	}
 
 	public String toString() {

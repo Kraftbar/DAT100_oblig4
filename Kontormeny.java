@@ -19,7 +19,7 @@ public class Kontormeny {
 		while(avslutt==0){
 
 			System.out.println("\n \n Vendligst velg et av alternativene nedenfor");
-			System.out.println(" 1 - Opprett rommet til herman");
+			System.out.println(" 1 - Opprett et rom (E402)");
 			System.out.println(" 2 - add en til");
 			System.out.println(" 3 - utskriftansatte");
 			System.out.println();
@@ -30,6 +30,7 @@ public class Kontormeny {
 	            	break;
 	            case 1:
 	            kontorListe.add(new Kontor('E', 4, 2,3));
+
 
 					System.out.println(kontorListe.get(0));
 					kontorListe.get(0).nyAnsatt("herman","testensen","geiboi@dsf.com","34242232",kontorListe.get(0));	            

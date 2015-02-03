@@ -4,8 +4,8 @@ public class Kontor {
 	private int etasje;
 	private int romnummer;
 	private int antfolkIrommet; //  nå utleide plasser
-	private int kontplasser=0;	//  max utleie av folk
-	private Ansatt [] muligfolkIrommet;	
+	private int kontplasser=-1;	//  max utleie av folk
+	private Ansatt [] ansattListe;	
 
 	
 	public char getBygning() {
@@ -37,7 +37,8 @@ public class Kontor {
 		this.bygning = bygning;
 		this.etasje = etasje;
 		this.romnummer = romnummer;
-		muligfolkIrommet = new Ansatt [kontplasser]; //lir oprettet ovenfor
+		ansattListe = new Ansatt [kontplasser]; //lir oprettet ovenfor
+		kontplasser=kontplasser+1;
 
 	}
 		
@@ -50,7 +51,7 @@ public class Kontor {
 /*
 		resultat += romnummer+"\n ";
 		for(int i=0;i<antfolkIrommet;i+=1 ){
-			System.out.println(muligfolkIrommet[i]);
+			System.out.println(ansattListe[i]);
 		}
 */		
 
@@ -60,7 +61,7 @@ public class Kontor {
 
 	public void utskriftansatte(){
 		for(int i=0;i<antfolkIrommet;i+=1 ){
-			System.out.println(muligfolkIrommet[i]);
+			System.out.println(ansattListe[i]);
 		}
 	}
 
@@ -69,7 +70,7 @@ public class Kontor {
 	public void nyAnsatt(String fornavn, String etternavn, String epostadresse, String telefon, Kontor kontor){
 
 		if(antfolkIrommet>=kontplasser){
-			muligfolkIrommet[antfolkIrommet]=  new Ansatt( fornavn,  etternavn,  epostadresse,  telefon,  kontor);
+			ansattListe[antfolkIrommet]=  new Ansatt( fornavn,  etternavn,  epostadresse,  telefon,  kontor);
 			antfolkIrommet=antfolkIrommet+1;
 		}else{
 			System.out.println("Det er fullt");
