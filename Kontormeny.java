@@ -15,6 +15,7 @@ public class Kontormeny {
 		int avslutt=0;
 		int valg;
 		int antKont=0;
+		String svar;
 		Scanner inn = new Scanner(System.in);
 		while(avslutt==0){
 
@@ -42,6 +43,9 @@ public class Kontormeny {
 
 					break;
 	            case 2:  
+	            	System.out.println("sjekk om harman deler kontor med noen");
+	           		svar =inn.nextLine();
+	           	 	kontorListe.get(0).kontorDel("herman");
 	                break;
 	            case 3:  
 

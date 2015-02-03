@@ -57,10 +57,8 @@ public class Ansatt {
 		this.kontor = kontor;
 	}
 
-	public void kontorDel(){ // denne skal
 
 
-	}
 
 	public String toString() {
 		return "Fornavn:   " + fornavn + "\n"

@@ -42,6 +42,15 @@ public class Kontor {
 
 	}
 		
+	public void kontorDel(String navn){ 
+		
+		for(int i=0;i<antfolkIrommet;i+=1 ){
+			if(ansattListe[i].getFornavn()!=navn){
+							System.out.println("kotorpartner detected");
+							ansattListe[i].toString();
+			}
+		}
+	}
 
 	public String toString() {
 		String resultat = bygning + "-" + etasje;
