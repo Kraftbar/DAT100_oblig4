@@ -1,0 +1,41 @@
+Øving 6: Arving
+Læringsmål
+Du skal få øving i hvordan å bruke arving.
+
+	Oppgaver
+
+Overordnet beskrivelse: Du skal lage en del av et system for å registrere rom som er på et universitet.
+I denne øvinga skal du lage basisklassene og metoder for å skrive ut data.
+
+
+
+a) Lag en klasse Rom som inneholder data som er felles for alle rom. Alle rom har en bygning
+(char), en etasje, et romnummer og et areal (et tall). Bygning, etasje og romnummer er
+tilsvarende som for klassen Kontor fra øving 4.
+
+b) Lag en klasse Undervisningsrom som arver fra Rom og som i tillegg har en kapasitet (hvor
+mange studenter som kan sitte der) samt en variabel som sier om det er streaming-utstyr
+tilgjengelig.
+
+c) Lag konstruktører for de to klassene, samt settere og gettere for variablene i disse to klassene
+
+d) Lag toString metoder i de to klassene som skriver ut romnummer og hva slags rom det er. For
+undervisningsrom skal kapasiteten inkluderes.
+
+e) Lag en main() metode som lager objekter av klassene rom og undervisningsrom. Sett alle
+objektene inn i en array eller arraylist av Rom.
+
+f) Lag kode som skriver ut informasjonen om objektene i arrayen eller arraylisten fra forrige
+oppgave. Koden skal gå gjennom alle objektene i arrayen eller arraylisten og skriver dem ut
+ved å kalle toString() metoden på hvert objekt.
+
+g) Frivillig: Modifiser kontor klassen fra øving 4 til å arve fra Rom. Et kontor er et rom som har
+en kapasitet og en liste med ansatte som jobber på kontoret. Legg noen objekter av den nye
+Kontor klassen inn i Rom arrayen eller arraylisten fra oppgave e) og kjør koden fra e) og f) på
+dem også
+
+h) Frivillig: Lag en klasse Laboratorium som arver fra Undervisningsrom. Et laboratorium har i
+tillegg et fagfelt (string, for eksempel «Elektro») og en beskrivelse av hva slags utstyr som fins
+på rommet (string, for eksempel «Studentsett av mikrokontrollere for Datamaskinarkitektur.
+Loddebolter og tomme kretser for Elektroteknikk»). Bruk denne klassen sammen med de
+andre i oppgave e) og f).
