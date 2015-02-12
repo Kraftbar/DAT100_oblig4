@@ -1,13 +1,14 @@
+import java.util.ArrayList;
+
 
 public class Kontor extends Rom {
 	private int kontplasser;	//  max utleie av folk
-    	ArrayList<Ansatt> ansattListe = new ArrayList<Ansatt>();
+	ArrayList<Ansatt> ansattListe;
 
 	public Kontor(char bygning, int etasje, int romnummer, int kontplasser){
-    	
 		super(bygning, etasje,  romnummer);
+		ansattListe = new ArrayList<>();
 		setKontorplasser(kontplasser);
-
 	}
 
 	public void setKontorplasser(int kontplasser){
