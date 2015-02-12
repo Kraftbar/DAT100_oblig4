@@ -1,40 +1,47 @@
 
 public class Kontor extends Rom {
-	private int antfolkIrommet; //  nå utleide plasser
-	private int kontplasser=-1;	//  max utleie av folk
-	private Ansatt [] ansattListe;	
+	private int kontplasser;	//  max utleie av folk
+    	ArrayList<Ansatt> ansattListe = new ArrayList<Ansatt>();
 
 	public Kontor(char bygning, int etasje, int romnummer, int kontplasser){
+    	
 		super(bygning, etasje,  romnummer);
-
-		ansattListe = new Ansatt [kontplasser]; //lir oprettet ovenfor
-		kontplasser=kontplasser+1;
+		setKontorplasser(kontplasser);
 
 	}
+
+	public void setKontorplasser(int kontplasser){
+		this.kontplasser=kontplasser;
+	}
+
+
+	public int getKontorplasser() {
+		return kontplasser;
+	}
+
 
 
 	public void kontorDel(String navn){ 
 		
-		for(int i=0;i<antfolkIrommet;i+=1 ){
-			if(ansattListe[i].getFornavn()!=navn){
+		for(int i=0;i<ansattListe.size();i+=1 ){
+			if(ansattListe.get(i).getFornavn()!=navn){
 							System.out.println("kotorpartner detected");
-							ansattListe[i].toString();
+							ansattListe.get(i).toString();
 			}
 		}
 	}
 
 	public void utskriftansatte(){
-		for(int i=0;i<antfolkIrommet;i+=1 ){
-			System.out.println(ansattListe[i]);
+		for(int i=0;i<ansattListe.size();i+=1 ){
+			System.out.println(ansattListe.get(i));
 		}
 	}
 	
 
 	public void nyAnsatt(String fornavn, String etternavn, String epostadresse, String telefon, Kontor kontor){
 
-		if(antfolkIrommet>=kontplasser){
-			ansattListe[antfolkIrommet]=  new Ansatt( fornavn,  etternavn,  epostadresse,  telefon,  kontor);
-			antfolkIrommet=antfolkIrommet+1;
+		if(ansattListe.size()>=kontplasser){
+			ansattListe.add(new Ansatt( fornavn,  etternavn,  epostadresse,  telefon,  kontor));
 		}else{
 			System.out.println("Det er fullt");
 		}
