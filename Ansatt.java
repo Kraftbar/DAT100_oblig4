@@ -9,11 +9,11 @@ public class Ansatt {
 	private Kontor kontor;
 	//test
 	public Ansatt(String fornavn, String etternavn, String epostadresse, String telefon, Kontor kontor) {
-		this.fornavn = fornavn;
-		this.etternavn = etternavn;
-		this.epostadresse = epostadresse;
-		this.telefon = telefon;
-		this.kontor = kontor;
+		setFornavn(fornavn);
+		setEtternavn(etternavn);
+		setEpostadresse(epostadresse);
+		setTelefon(telefon);
+		setKontor(kontor);
 	}
 	
 

@@ -9,8 +9,7 @@ I denne øvinga skal du lage basisklassene og metoder for å skrive ut data.
 
 
 
-a) Lag en klasse Rom som inneholder data som er felles for alle rom. Alle rom har en bygning
-(char), en etasje, et romnummer og et areal (et tall). Bygning, etasje og romnummer er
+a) Lag en klasse Rom som inneholder data som er felles for alle rom. Alle rom har en bygning(char), en etasje, et romnummer og et areal (et tall). Bygning, etasje og romnummer er
 tilsvarende som for klassen Kontor fra øving 4.
 
 b) Lag en klasse Undervisningsrom som arver fra Rom og som i tillegg har en kapasitet (hvor

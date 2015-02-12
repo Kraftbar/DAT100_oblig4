@@ -1,47 +1,18 @@
 
-public class Kontor {
-	private char bygning;
-	private int etasje;
-	private int romnummer;
+public class Kontor extends Rom {
 	private int antfolkIrommet; //  nå utleide plasser
 	private int kontplasser=-1;	//  max utleie av folk
 	private Ansatt [] ansattListe;	
 
-	
-	public char getBygning() {
-		return bygning;
-	}
-	
-	public void setBygning(char bygning) {
-		this.bygning = bygning;
-	}
-	
-	public int getEtasje() {
-		return etasje;
-	}
-	
-	public void setEtasje(int etasje) {
-		this.etasje = etasje;
-	}
-	
-	public int getRomnummer() {
-		return romnummer;
-	}
-	
-	public void setRomnummer(int romnummer) {
-		this.romnummer = romnummer;
-	}
-
-
 	public Kontor(char bygning, int etasje, int romnummer, int kontplasser){
-		this.bygning = bygning;
-		this.etasje = etasje;
-		this.romnummer = romnummer;
+		super(bygning, etasje,  romnummer);
+
 		ansattListe = new Ansatt [kontplasser]; //lir oprettet ovenfor
 		kontplasser=kontplasser+1;
 
 	}
-		
+
+
 	public void kontorDel(String navn){ 
 		
 		for(int i=0;i<antfolkIrommet;i+=1 ){
@@ -52,29 +23,12 @@ public class Kontor {
 		}
 	}
 
-	public String toString() {
-		String resultat = bygning + "-" + etasje;
-		if (romnummer < 10) resultat += "0";
-		resultat += romnummer;
-
-/*
-		resultat += romnummer+"\n ";
-		for(int i=0;i<antfolkIrommet;i+=1 ){
-			System.out.println(ansattListe[i]);
-		}
-*/		
-
-		return resultat;
-	}
-
-
 	public void utskriftansatte(){
 		for(int i=0;i<antfolkIrommet;i+=1 ){
 			System.out.println(ansattListe[i]);
 		}
 	}
-
-
+	
 
 	public void nyAnsatt(String fornavn, String etternavn, String epostadresse, String telefon, Kontor kontor){
 
@@ -85,6 +39,5 @@ public class Kontor {
 			System.out.println("Det er fullt");
 		}
 	}
-	
 
 }
