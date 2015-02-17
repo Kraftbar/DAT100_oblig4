@@ -4,14 +4,22 @@ int kapasitet;
 boolean streaming;
 	public Undervisningsrom(char bygning, int etasje, int romnummer, int kapasitet, boolean streaming){
 		super(bygning, etasje,  romnummer);
-		ansattListe = new ArrayList<>();
 		setKapasitet(kapasitet);
 		setStreaming(streaming);
 	}
 
+/*
+	public String toString() {
+		String resultat = bygning + "-" + etasje;
+		if (romnummer < 10) resultat += "0";
+		resultat += romnummer;
 
-	public void setKapasitet(kapasitet){
-		
+		return resultat;
+	}
+*/
+
+	public void setKapasitet(int kapasitet){
+		this.kapasitet=kapasitet;
 	}
 
 	public int getKapasitet(){
@@ -19,7 +27,7 @@ boolean streaming;
 	}
 
 
-	public void setStreaming(){
+	public void setStreaming(boolean streaming){
 		this.streaming=streaming;
 	}
 

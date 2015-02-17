@@ -11,6 +11,16 @@ public class Kontor extends Rom {
 		setKontorplasser(kontplasser);
 	}
 
+/*
+	public String toString() {
+		String resultat = bygning + "-" + etasje;
+		if (romnummer < 10) resultat += "0";
+		resultat += romnummer;
+
+		return resultat;
+	}
+*/
+
 	public void setKontorplasser(int kontplasser){
 		this.kontplasser=kontplasser;
 	}
