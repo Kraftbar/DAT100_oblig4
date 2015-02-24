@@ -8,6 +8,8 @@ public class Ansatt {
 	private String telefon;
 	private Kontor kontor;
 	//test
+	
+	//God natt <3<3. 
 	public Ansatt(String fornavn, String etternavn, String epostadresse, String telefon, Kontor kontor) {
 		setFornavn(fornavn);
 		setEtternavn(etternavn);
