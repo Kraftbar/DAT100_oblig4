@@ -1,4 +1,3 @@
-package egendefinerte_klasser;
 
 public class Terning {
 	private int verdi;
