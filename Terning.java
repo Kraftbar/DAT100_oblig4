@@ -11,6 +11,7 @@ public class Terning {
 	public Terning(int sider) {
 		antallSider = sider;
 		verdi = 1;
+
 	}
 	
 	public void kast() {
