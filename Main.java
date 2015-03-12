@@ -31,9 +31,7 @@ public static void main(String[] args) {
 	            	avslutt=true;
 	            	break;
 	            case 1:
-					for(int i=0;i<spillerliste.size();i=i+1){
-					spillerliste.get(i).gjorTrekk();
-					}
+	            	
 
 					break;	
 	            case 2:  

@@ -6,27 +6,18 @@ import java.util.ArrayList;
 public class Spiller {
 	private String navn;
 	private int posisjon;
-	int tull;
-	Terning terning;
 	public Spiller(String navn) {
-		terning = new Terning();
+		Terning terning = new Terning();
 		this.navn = navn;
 		posisjon = 0;
 	}
 	
-
-	public void gjorTrekk(){
-		terning.kast();
-		
-		posisjon=posisjon+terning.getVerdi();
-	}
 
 
 	public String toString() {
 		return "Fornavn:   " + navn + "\n"+ "Posisjon: " + posisjon + "\n";
 	
 	}
-
 
 	public String getNavn() {
 		return navn;
