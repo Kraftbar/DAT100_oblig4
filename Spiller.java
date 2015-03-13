@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-public class Spiller {
+public class Spiller implements Rute {
 	private String navn;
 	private int posisjon;
 	Terning terning;
