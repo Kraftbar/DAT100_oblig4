@@ -48,6 +48,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Line;
+import static java.lang.Math.*;
+
 
 public class Oblig8 extends Application {
     public static void main(String[] args) {
@@ -61,9 +63,12 @@ public class Oblig8 extends Application {
 
 		Random rand = new Random();
     	int tall = rand.nextInt(1000);
-    	int tallgjett=0;
+    	int sistgjett=-212;
     	String tull=null;
+    	boolean nermere;
 
+    	int tallgjett=0;
+		
 
 		TextField input = new TextField("input");
 //		input.setPrefColumnCount(15);
@@ -81,7 +86,6 @@ public class Oblig8 extends Application {
  //       gridpane.setVgap(10);
 
 
-		
 
         Button btn = new Button();
         btn.setText("OK");
@@ -92,11 +96,23 @@ public class Oblig8 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-        		System.out.println("sjekk om "+tull +" er storre enn "+ tallgjett);        		        		
-      			String tull=input.getText();
+
+
+
+
+
+            	System.out.println(Math.abs(tallgjett-tall) + " " +Math.abs(Integer.parseInt(input.getText())-tall));
+        		System.out.println("sjekk om "+tall +" er storre enn "+ tallgjett);
                 int tallgjett=Integer.parseInt(input.getText());
 
-        		System.out.println("sjekk om "+tull +" er storre enn "+ tallgjett);        		        		
+
+            	if(Math.abs(tallgjett - tall)>Math.abs(Integer.parseInt(input.getText()) - tall)){
+            		// nermere =0
+            	}else{
+            		// nermere=1
+            	}
+
+        		System.out.println("sjekk om "+tall +" er storre enn "+ tallgjett);        		        		
 
 				if(tall>tallgjett){
 					output.setText("For lavt");
