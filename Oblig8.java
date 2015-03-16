@@ -34,6 +34,21 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+	
+import javafx.application.Application;
+import javafx.geometry.HPos;
+import javafx.geometry.Orientation;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Line;
+
 public class Oblig8 extends Application {
     public static void main(String[] args) {
 
@@ -57,6 +72,7 @@ public class Oblig8 extends Application {
 		Text output= new Text("output");
 		input.setPrefColumnCount(15);
 
+			Line linje = new Line(0, 0, 200, 0);
 
 		//test
         GridPane gridpane = new GridPane();
@@ -76,11 +92,11 @@ public class Oblig8 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-        		System.out.println("Du trykket");
-        		System.out.println(tull);
-        		System.out.println(tallgjett);        		        		
+        		System.out.println("sjekk om "+tull +" er storre enn "+ tallgjett);        		        		
       			String tull=input.getText();
                 int tallgjett=Integer.parseInt(input.getText());
+
+        		System.out.println("sjekk om "+tull +" er storre enn "+ tallgjett);        		        		
 
 				if(tall>tallgjett){
 					output.setText("For lavt");
@@ -100,6 +116,7 @@ public class Oblig8 extends Application {
 		root.getChildren().add(input);
  		root.getChildren().add(btn);
         root.getChildren().add(output);
+        root.getChildren().add(linje);
 
      	root.setAlignment(btn, Pos.TOP_RIGHT);
      	root.setAlignment(output, Pos.TOP_LEFT);
