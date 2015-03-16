@@ -79,8 +79,8 @@ public class Oblig8 extends Application {
         		System.out.println("Du trykket");
         		System.out.println(tull);
         		System.out.println(tallgjett);        		        		
-      			tull=input.getText();
-                tallgjett=Integer.parseInt(input.getText());
+      			String tull=input.getText();
+                int tallgjett=Integer.parseInt(input.getText());
 
 				if(tall>tallgjett){
 					output.setText("For lavt");
