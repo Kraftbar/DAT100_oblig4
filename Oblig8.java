@@ -52,6 +52,13 @@ import static java.lang.Math.*;
 
 
 public class Oblig8 extends Application {
+    	int tall;
+    	int sistgjett;
+    	String tull;
+    	boolean nermere;
+    	int tallgjett;
+		Random rand;
+
     public static void main(String[] args) {
 
         launch(args);
@@ -59,31 +66,26 @@ public class Oblig8 extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+
         primaryStage.setTitle("Gjettespill");
 
-		Random rand = new Random();
-    	int tall = rand.nextInt(1000);
-    	int sistgjett=-212;
-    	String tull=null;
-    	boolean nermere;
-
-    	int tallgjett=0;
+		rand = new Random();
+    	tall = rand.nextInt(1000);
+    	sistgjett=-212;
+    	tull=null;
+    	tallgjett=0;
 		
 
 		TextField input = new TextField("input");
-//		input.setPrefColumnCount(15);
 
 
 		Text output= new Text("output");
-		input.setPrefColumnCount(15);
 
-			Line linje = new Line(0, 0, 200, 0);
+		Line linje = new Line(0, 0, 200, 0);
 
-		//test
         GridPane gridpane = new GridPane();
         gridpane.setPadding(new Insets(5));
- //       gridpane.setHgap(10);
- //       gridpane.setVgap(10);
+
 
 
 
@@ -95,31 +97,45 @@ public class Oblig8 extends Application {
 
 
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(ActionEvent event) { 
 
 
 
 
 
-            	System.out.println(Math.abs(tallgjett-tall) + " " +Math.abs(Integer.parseInt(input.getText())-tall));
-        		System.out.println("sjekk om "+tall +" er storre enn "+ tallgjett);
-                int tallgjett=Integer.parseInt(input.getText());
+            	System.out.println("Tallet du gjettet er: " +Math.abs(Integer.parseInt(input.getText())-tall)+"  unna");
 
 
-            	if(Math.abs(tallgjett - tall)>Math.abs(Integer.parseInt(input.getText()) - tall)){
-            		// nermere =0
+            	//				gammelt										ny
+            	if(Math.abs(tallgjett - tall)>Math.abs(Integer.parseInt(input.getText()) - tall)){	
+
+            		nermere =true;
             	}else{
-            		// nermere=1
+            		nermere=false;
             	}
 
-        		System.out.println("sjekk om "+tall +" er storre enn "+ tallgjett);        		        		
+                tallgjett=Integer.parseInt(input.getText());	// sist blir overskrevet
+
+        		System.out.println("tallet er "+tall);        		        		
+
 
 				if(tall>tallgjett){
-					output.setText("For lavt");
+					if(nermere){
+						output.setText("For lavt, men du er nermere");
+					}else{
+						output.setText("For lavt, du er legre vekke");
+					}
+					
 				}else if(tall<tallgjett){
-					output.setText("For hoyt");
+						if(nermere){
+						output.setText("For hoyt, men du er nermere");
+					}else{
+						output.setText("For hoyt, du er legre vekke");
+					}
 				}else{
 					output.setText("Riktig!!");
+					    System.exit(0);
+
 				}
 
             }
@@ -141,10 +157,6 @@ public class Oblig8 extends Application {
 
         primaryStage.setScene(new Scene(root, 150, 100));
         primaryStage.show();
-
-			
-
-		
 
     }
 }
