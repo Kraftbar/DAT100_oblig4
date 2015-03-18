@@ -59,6 +59,7 @@ public class Oblig8 extends Application {
     	boolean nermere;
     	int tallgjett;
 		Random rand;
+		int teller;
 
     public static void main(String[] args) {
 
@@ -106,59 +107,66 @@ public class Oblig8 extends Application {
             public void handle(ActionEvent event) { 
 
         		catchs.setText("");
+        		try{
+
+	            	if(Integer.parseInt(input.getText())<0 || Integer.parseInt(input.getText())-tall>1001){
+						output.setText("Skriv inn gyldig tall");
+	        		}else{
+
+			            	System.out.println("Tallet du gjettet er: " +Math.abs(Integer.parseInt(input.getText())-tall)+"  unna");
 
 
-            	if(Integer.parseInt(input.getText())<0 || Integer.parseInt(input.getText())-tall>1001){
-					output.setText("Skriv inn gyldig tall");
-        		}else{
+			            	//				gammelt										ny
+			            	if(Math.abs(tallgjett - tall)>Math.abs(Integer.parseInt(input.getText()) - tall)){	
+			            		nermere =true;
+			            	}else{
+			            		nermere=false;
+			            	}
 
-	        		try{
-		            	System.out.println("Tallet du gjettet er: " +Math.abs(Integer.parseInt(input.getText())-tall)+"  unna");
+			                tallgjett=Integer.parseInt(input.getText());	// sist blir overskrevet
 
 
-		            	//				gammelt										ny
-		            	if(Math.abs(tallgjett - tall)>Math.abs(Integer.parseInt(input.getText()) - tall)){	
-		            		nermere =true;
-		            	}else{
-		            		nermere=false;
-		            	}
 
-		                tallgjett=Integer.parseInt(input.getText());	// sist blir overskrevet
 
-	            	} catch(Exception e) {
+		        		System.out.println("tallet er "+tall);        		        		
+
+
+
+
+
+						if(tall>tallgjett){
+							if(nermere){
+								output.setText("For lavt, men du er nermere. Dette er ditt " +teller +". forsok");
+								teller++;
+							}else{	
+								output.setText("For lavt, du er legre vekke. Dette er ditt " +teller +". forsok");
+								teller++;
+							}
+							
+						}else if(tall<tallgjett){
+							if(nermere){
+								output.setText("For hoyt, men du er nermere. Dette er ditt " +teller +". forsok");
+								teller++;
+							}else{
+								output.setText("For hoyt, du er legre vekke. Dette er ditt " +teller+ ". forsok");
+								teller++;
+							}
+						}else{
+							output.setText("Riktig!!");
+		        			System.out.println("Riktig!");        		        		
+
+							    System.exit(0);
+						}
+		 
+				
+			
+
+				}
+}catch(Exception e) {
 	          
-	            		            		catchs.setText("Skriv inn gyldig tall");
+					catchs.setText("Skriv inn gyldig tall");
 
 	            	}
-
-
-	        		System.out.println("tallet er "+tall);        		        		
-
-
-
-
-
-					if(tall>tallgjett){
-						if(nermere){
-							output.setText("For lavt, men du er nermere");
-						}else{	
-							output.setText("For lavt, du er legre vekke");
-						}
-						
-					}else if(tall<tallgjett){
-							if(nermere){
-							output.setText("For hoyt, men du er nermere");
-						}else{
-							output.setText("For hoyt, du er legre vekke");
-						}
-					}else{
-						output.setText("Riktig!!");
-	        			System.out.println("Riktig!");        		        		
-
-						    System.exit(0);
-					}
-				}
-
             }
         });
         
@@ -179,7 +187,7 @@ public class Oblig8 extends Application {
      	root.setAlignment(catchs, Pos.CENTER);
 
 
-        primaryStage.setScene(new Scene(root, 150, 100));
+        primaryStage.setScene(new Scene(root, 300, 150));
         primaryStage.show();
 
     }
