@@ -1,0 +1,4 @@
+class Maal extends AbstraktRute{
+	
+	
+}

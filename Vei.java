@@ -1,0 +1,3 @@
+class Vei extends AbstraktRute{
+	
+}

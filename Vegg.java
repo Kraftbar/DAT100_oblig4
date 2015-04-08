@@ -1,0 +1,2 @@
+class Vegg extends AbstraktRute{
+}
