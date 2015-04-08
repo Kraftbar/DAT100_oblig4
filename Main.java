@@ -71,7 +71,6 @@ char cahrtull;
         gridPane = new GridPane();
         Scene scene = new Scene(root, 500, 500  , Color.WHITE); 
 
-                             gridpane.getColumnConstraints().add(new ColumnConstraints(7)); // column 0 is 100 wide
 
 
 
@@ -121,7 +120,7 @@ char cahrtull;
 */
 
 
-
+/*
 
 
                     for (int i = 0; i < hoyde; i++) {
@@ -137,7 +136,7 @@ char cahrtull;
 
                         }
                     }                
-
+*/
 
            for(int m=0;m<hoyde;m++){
                 System.out.println("\n");
