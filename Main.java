@@ -66,22 +66,35 @@ char cahrtull;
 
 
 
-        Group root = new Group();
+        primaryStage.setTitle("GridPane example");
 
-        gridPane = new GridPane();
-        Scene scene = new Scene(root, 500, 500  , Color.WHITE); 
+        //Adding GridPane
+        GridPane gridPane = new GridPane();
+
+        // 2D array of Buttons with value of 5,5
+        Rectangle [][] btn = new Rectangle [5][5];
+
+        //Column is a vertical line and row is a horizontal line
+        //Two FOR loops used for creating 2D array of buttons with values i,j
+        for(int i=0; i<btn.length; i++){
+            for(int j=0; j<btn.length;j++){
+
+                //Initializing 2D buttons with values i,j
+                btn[i][j] = new Rectangle (50,50);
+                btn[i][j].setStroke(Paint.valueOf("orange"));
+                btn[i][j].setFill(Paint.valueOf("steelblue"));
+                gridPane.add(btn[i][j], i, j);
 
 
+            }
+        }
 
-
-        primaryStage.setTitle("java-buddy.blogspot.com");
-       
-
-
-        root.getChildren().add(gridPane);        
-
+        //Adding GridPane to the scene
+        Scene scene = new Scene(gridPane);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
 
 
    }
@@ -99,33 +112,20 @@ char cahrtull;
         Scanner sc = new Scanner(file);
             int lengde = sc.nextInt();  
             int hoyde = sc.nextInt();
-
-
-            rutenett= new AbstraktRute[lengde][hoyde];
-  //          gridPane.setPrefSize(lengde, hoyde);
-//           gridPane.setVgap(10);
-  //          gridPane.setHgap(10);
-
-
             sc.nextLine();
 
+            rutenett= new AbstraktRute[lengde][hoyde];
+
+
+
+
+
+
 /*
-            while (sc.hasNextLine()) {
-                int i = sc.nextInt();
-                System.out.println(i);
-            }
-            int hoyde=0;
-            int lengde=0;
-
-*/
-
-
-
-
 
                     for (int i = 0; i < hoyde; i++) {
                         for (int j = 0; j < lengde; j++) {
-                            System.out.println(i+" "+j);
+                            System.out.println(i + " " + j);
 
                             Rectangle rectangle = new Rectangle(10, 10);
                             rectangle.setStroke(Paint.valueOf("orange"));
@@ -133,10 +133,10 @@ char cahrtull;
                             gridPane.add(rectangle, hoyde, lengde);
 
 
-
                         }
-                    }                
+                    }
 
+*/
 
            for(int m=0;m<hoyde;m++){
                 System.out.println("\n");

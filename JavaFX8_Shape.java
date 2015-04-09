@@ -1,50 +1,47 @@
- 
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
- 
+
 /**
  *
- * @web java-buddy.blogspot.com
+ * @web http://zoranpavlovic.blogspot.com/
  */
 public class JavaFX8_Shape extends Application {
- 
-    @Override
-    public void start(Stage primaryStage) {
-        Group root = new Group();
-        Scene scene = new Scene(root, 500, 500, Color.BLACK);
- 
-        //Filled rectangle
-        Rectangle rect1 = new Rectangle(10, 10, 200, 200);
-        rect1.setFill(Color.BLUE);
-         
-        //Transparent rectangle with Stroke
-        Rectangle rect2 = new Rectangle(60, 60, 200, 200);
-        rect2.setFill(Color.TRANSPARENT);
-        rect2.setStroke(Color.RED);
-        rect2.setStrokeWidth(10);
-         
-        //Rectangle with Stroke, no Fill color specified
-        Rectangle rect3 = new Rectangle(110, 110, 200, 200);
-        rect3.setStroke(Color.GREEN);
-        rect3.setStrokeWidth(10);
-         
-        root.getChildren().addAll(rect1, rect2, rect3);
- 
-        primaryStage.setTitle("java-buddy.blogspot.com");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
- 
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
- 
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("GridPane example");
+
+        //Adding GridPane
+        GridPane gridPane = new GridPane();
+
+        // 2D array of Buttons with value of 5,5
+        Button[][] btn = new Button[5][5];
+
+        //Column is a vertical line and row is a horizontal line
+        //Two FOR loops used for creating 2D array of buttons with values i,j
+        for(int i=0; i<btn.length; i++){
+            for(int j=0; j<btn.length;j++){
+
+                //Initializing 2D buttons with values i,j
+                btn[i][j] = new Button(""+i+","+""+j);
+                btn[i][j].setPrefSize(50, 50);
+                gridPane.add(btn[i][j], i, j);
+            }
+        }
+
+        //Adding GridPane to the scene
+        Scene scene = new Scene(gridPane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }
