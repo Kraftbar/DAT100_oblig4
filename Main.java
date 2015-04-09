@@ -120,7 +120,7 @@ char cahrtull;
 */
 
 
-/*
+
 
 
                     for (int i = 0; i < hoyde; i++) {
@@ -130,13 +130,13 @@ char cahrtull;
                             Rectangle rectangle = new Rectangle(10, 10);
                             rectangle.setStroke(Paint.valueOf("orange"));
                             rectangle.setFill(Paint.valueOf("steelblue"));
-                                gridPane.setConstraint(rectangle, hoyde, lengde);
+                            gridPane.add(rectangle, hoyde, lengde);
 
 
 
                         }
                     }                
-*/
+
 
            for(int m=0;m<hoyde;m++){
                 System.out.println("\n");
