@@ -4,8 +4,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.util.List;
 import java.util.Scanner;
 import javafx.application.Application;
+import javafx.scene.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 
@@ -18,15 +24,14 @@ import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;  
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 
 
@@ -40,66 +45,62 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
     
-GridPane gridPane;
-AbstraktRute[][] rutenett;
-String tull;
-char cahrtull;
+    AbstraktRute[][] rutenett;
+    String tull;
+    char cahrtull;
+    Spiller spiller;
 
-    public static void main(String[] args) {
-
-        launch(args);
-
-    }
-    
+    Stage primaryStage;
+    int bredde, hoyde;
+    int startX, startY;
+    GridPane rootGrid;
 
 
-
-
-
+    public static void main(String[] args) {launch(args);}
 
     @Override
     public void start(Stage primaryStage) {
 
 
-        lesOgLagBane();
+            try{
+                this.primaryStage = primaryStage;
+                rootGrid = new GridPane();
+                EventHandler<KeyEvent> eventHandler = event -> {
+                    KeyCode code = event.getCode();
+                    int xDir = 0;
+                    int yDir = 0;
+                    if(code==KeyCode.UP){
+                        yDir = -1;
 
+                    }
+                    else if(code==KeyCode.DOWN){
+                        yDir = 1;
 
+                    }
+                    else if(code==KeyCode.LEFT){
+                        xDir = -1;
+                    }
+                    else if(code==KeyCode.RIGHT){
+                        xDir = 1;
+                    }
+                    rutenett[spiller.getX() + xDir][spiller.getY() + yDir].flyttTil(spiller);
+                    CreateScene();
+                };
+                LoadRuter();
+                Scene scene = new Scene(rootGrid, bredde*32,hoyde*32);
+                scene.setOnKeyPressed(eventHandler);
+                primaryStage.setScene(scene);
+                primaryStage.setTitle("Labyrintspill");
 
-
-        primaryStage.setTitle("GridPane example");
-
-        //Adding GridPane
-        GridPane gridPane = new GridPane();
-
-        // 2D array of Buttons with value of 5,5
-        Rectangle [][] btn = new Rectangle [5][5];
-
-        //Column is a vertical line and row is a horizontal line
-        //Two FOR loops used for creating 2D array of buttons with values i,j
-        for(int i=0; i<btn.length; i++){
-            for(int j=0; j<btn.length;j++){
-
-                //Initializing 2D buttons with values i,j
-                btn[i][j] = new Rectangle (50,50);
-                btn[i][j].setStroke(Paint.valueOf("orange"));
-                btn[i][j].setFill(Paint.valueOf("steelblue"));
-                gridPane.add(btn[i][j], i, j);
-
-
+                spiller = new Spiller(startX, startY);
+                CreateScene();
+                primaryStage.show();
+            }catch (Exception e){
+                e.printStackTrace();
             }
-        }
-
-        //Adding GridPane to the scene
-        Scene scene = new Scene(gridPane);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    }
 
 
-
-
-   }
-
-    public void lagBilde(){}
 
 
 
@@ -141,7 +142,6 @@ char cahrtull;
            for(int m=0;m<hoyde;m++){
                 System.out.println("\n");
                 tull = sc.nextLine();
-
                 for(int n=0;n<lengde;n++){
 
                     cahrtull = tull.charAt(n);
@@ -152,18 +152,18 @@ char cahrtull;
                 
                     switch (cahrtull) {
                     case '#':
-                        rutenett[n][m]= new Vegg();                    
+                        rutenett[n][m]= new Vegg(n, m);
 
 
                         break;
                     case ' ':
-                        rutenett[n][m]= new Vei();                    
+                        rutenett[n][m]= new Vei(n,m);
                         break;
                     case '*':
-                        rutenett[n][m]= new Spiller();                    
+                        rutenett[n][m]= new Spiller(n,m);
                         break;
                     case '-':
-                        rutenett[n][m]= new Maal();
+                        rutenett[n][m]= new Maal(n,m);
                         break;                                        
                     default: System.out.println("ugyldig fil");
                         break;
@@ -180,13 +180,89 @@ char cahrtull;
        }
    }
 
+    public void visRuter(Spiller spiller){
+        for(int y=-1; y<2; y++){
+            for(int x = -1; x<2; x++){
+                rutenett[spiller.getX() + x][spiller.getY() + y].setOppdaget(true);
+            }
+        }
+    }
 
+    public void CreateScene(){
+        rootGrid.getChildren().clear();
+        visRuter(spiller);
+        for(int y = 0; y< hoyde; y++){
+            for(int x=0; x < bredde; x++){
+                Node node;
+                if (rutenett[x][y].oppdaget()){
+                    node = new ImageView(rutenett[x][y].getRuteBilde());
+                }
+                else{
+                    Rectangle rect = new Rectangle(32, 32);
+                    rect.getStyleClass().add("Ikke oppdaget");
+                    node = rect;
+                    /*p.setStyle("-fx-background-color: lightgray;");
+					node = p;
+					p.setMinSize(32, 32);*/
+                }
+                rootGrid.add(node, x, y);
+                if(spiller.getX() == x && spiller.getY() == y){
+                    ImageView spillerBilde = new ImageView(spiller.getBilde());
+                    rootGrid.add(spillerBilde, x, y);
+                }
+            }
+        }
+    }
+
+    public void LoadRuter(){
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Åpne labyrintfil");
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Textfil", "*.txt"));
+        File f = null;
+        while (f==null){
+            f = chooser.showOpenDialog(primaryStage);
+        }
+        try{
+            List<String> allLines = Files.readAllLines(f.toPath());
+            String[] items = new String[allLines.size()];
+            rutenett = ParseRuter(allLines.toArray(items));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public AbstraktRute[][] ParseRuter(String[] allLines){
+
+        bredde = Integer.parseInt(allLines[0]);
+        hoyde = Integer.parseInt(allLines[1]);
+        AbstraktRute[][] rutenett = new AbstraktRute[bredde][hoyde];
+
+        for(int y=0; y<hoyde; y++){
+            char[] linjeChars = allLines[y + 2].toCharArray();
+            for(int x=0; x < bredde; x++){
+
+                rutenett[x][y] = ParseRuter(linjeChars[x],x,y);
+            }
+        }
+        return rutenett;
+    }
+
+    public AbstraktRute ParseRuter(char type, int x, int y){
+        switch(type){
+            case '#':
+                return new Vegg(x, y);
+            case '-':
+                return new Maal(x, y);
+            case '*':
+                startX = x;
+                startY = y;
+                return new Spiller(x, y);
+            default:
+                return new Vei(x, y);
+
+        }
+    }
 }
-
-
-
-
-
 // manipulere strings https://docs.oracle.com/javase/tutorial/java/data/manipstrings.html
 
 
