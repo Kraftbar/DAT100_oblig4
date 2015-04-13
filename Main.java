@@ -1,9 +1,7 @@
 
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.Scanner;
@@ -16,32 +14,19 @@ import javafx.scene.layout.GridPane;
 
 
 
-    import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.VPos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
 
-import javafx.application.Application;
-import javafx.scene.Group;
+
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
+
 
 public class Main extends Application{
     
@@ -104,82 +89,6 @@ public class Main extends Application{
 
 
 
-    public void lesOgLagBane(){
-
-
-
-   File file = new File("testlabyrint_fra_oppgaveteksten.txt"); //for ex foo.txt
-       try {
-        Scanner sc = new Scanner(file);
-            int lengde = sc.nextInt();  
-            int hoyde = sc.nextInt();
-            sc.nextLine();
-
-            rutenett= new AbstraktRute[lengde][hoyde];
-
-
-
-
-
-
-/*
-
-                    for (int i = 0; i < hoyde; i++) {
-                        for (int j = 0; j < lengde; j++) {
-                            System.out.println(i + " " + j);
-
-                            Rectangle rectangle = new Rectangle(10, 10);
-                            rectangle.setStroke(Paint.valueOf("orange"));
-                            rectangle.setFill(Paint.valueOf("steelblue"));
-                            gridPane.add(rectangle, hoyde, lengde);
-
-
-                        }
-                    }
-
-*/
-
-           for(int m=0;m<hoyde;m++){
-                System.out.println("\n");
-                tull = sc.nextLine();
-                for(int n=0;n<lengde;n++){
-
-                    cahrtull = tull.charAt(n);
-                    System.out.print(cahrtull);
-                
-
-
-                
-                    switch (cahrtull) {
-                    case '#':
-                        rutenett[n][m]= new Vegg(n, m);
-
-
-                        break;
-                    case ' ':
-                        rutenett[n][m]= new Vei(n,m);
-                        break;
-                    case '*':
-                        rutenett[n][m]= new Spiller(n,m);
-                        break;
-                    case '-':
-                        rutenett[n][m]= new Maal(n,m);
-                        break;                                        
-                    default: System.out.println("ugyldig fil");
-                        break;
-                    }
-                
-                }   
-
-            }   
-
-           sc.close();
-
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-   }
-
     public void visRuter(Spiller spiller){
         for(int y=-1; y<2; y++){
             for(int x = -1; x<2; x++){
@@ -201,9 +110,7 @@ public class Main extends Application{
                     Rectangle rect = new Rectangle(32, 32);
                     rect.getStyleClass().add("Ikke oppdaget");
                     node = rect;
-                    /*p.setStyle("-fx-background-color: lightgray;");
-					node = p;
-					p.setMinSize(32, 32);*/
+
                 }
                 rootGrid.add(node, x, y);
                 if(spiller.getX() == x && spiller.getY() == y){
@@ -262,6 +169,79 @@ public class Main extends Application{
 
         }
     }
+
+    public void lesOgLagBane(){
+
+
+
+        File file = new File("testlabyrint_fra_oppgaveteksten.txt"); //for ex foo.txt
+        try {
+            Scanner sc = new Scanner(file);
+            int lengde = sc.nextInt();
+            int hoyde = sc.nextInt();
+            sc.nextLine();
+
+            rutenett= new AbstraktRute[lengde][hoyde];
+
+
+/*
+
+                    for (int i = 0; i < hoyde; i++) {
+                        for (int j = 0; j < lengde; j++) {
+                            System.out.println(i + " " + j);
+
+                            Rectangle rectangle = new Rectangle(10, 10);
+                            rectangle.setStroke(Paint.valueOf("orange"));
+                            rectangle.setFill(Paint.valueOf("steelblue"));
+                            gridPane.add(rectangle, hoyde, lengde);
+
+
+                        }
+                    }
+
+*/
+
+            for(int m=0;m<hoyde;m++){
+                System.out.println("\n");
+                tull = sc.nextLine();
+                for(int n=0;n<lengde;n++){
+
+                    cahrtull = tull.charAt(n);
+                    System.out.print(cahrtull);
+
+
+
+
+                    switch (cahrtull) {
+                        case '#':
+                            rutenett[n][m]= new Vegg(n, m);
+
+
+                            break;
+                        case ' ':
+                            rutenett[n][m]= new Vei(n,m);
+                            break;
+                        case '*':
+                            rutenett[n][m]= new Spiller(n,m);
+                            break;
+                        case '-':
+                            rutenett[n][m]= new Maal(n,m);
+                            break;
+                        default: System.out.println("ugyldig fil");
+                            break;
+                    }
+
+                }
+
+            }
+
+            sc.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 // manipulere strings https://docs.oracle.com/javase/tutorial/java/data/manipstrings.html
 
