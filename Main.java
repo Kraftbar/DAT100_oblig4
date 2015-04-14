@@ -35,6 +35,8 @@ public class Main extends Application{
     char cahrtull;
     Spiller spiller;
 
+
+
     Stage primaryStage;
     int bredde, hoyde;
     int startX, startY;
