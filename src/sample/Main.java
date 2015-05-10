@@ -16,10 +16,15 @@ import java.util.Random;
 
 public class Main extends Application {
     GridPane gridPane;
-    AbstraktRute[][] rutenett;
+    Rute[][] rutenett;
     int dimenjon=10;
     int str=(500/dimenjon);
     Spiller spiller;
+    Random rand=new Random();
+    int randX, randY = 0;
+    Godbit[] gotterier;
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -36,7 +41,7 @@ public class Main extends Application {
 
 
         // tegner forhåpentligvis hele brettet på nytt
-        rutenett= new AbstraktRute[dimenjon][dimenjon];
+        rutenett= new Rute[dimenjon][dimenjon];
         genererBrett();
 
         // aner ikke, bedre her nede enn en smørje der oppe
@@ -76,8 +81,6 @@ public class Main extends Application {
 
     //hvorfor får jeg ikke se den før jeg flytter?
     private void genererSpiller() {
-        Random rand=new Random();
-        int randX, randY = 0;
         randX= rand.nextInt(dimenjon);
         randY= rand.nextInt(dimenjon);
 
@@ -86,6 +89,17 @@ public class Main extends Application {
         spiller = new Spiller(randX,randY,str);
     //  gridPane.add(spiller.getNode(), spiller.getX(), spiller.getY());
 
+    }
+
+
+    void generGodbit() {
+        for (int i = 0; i > 5; i++){
+            randX = rand.nextInt(dimenjon);
+            randY = rand.nextInt(dimenjon);
+            //gotterier[0] = new Godbit(randX,randY,str);
+
+
+        }
     }
 
     private void genererBrett() {
@@ -103,10 +117,8 @@ public class Main extends Application {
         for(T n : forste){
             for(T m : andre){
                 System.out.println(n + " lik " +m+" ?");
-
                 if(n.equals(m)){
-                    System.out.println(n + "  sadasd" +m);
-
+                    System.out.println(n + "  ER " +m);
                 }
             }
         }
@@ -114,7 +126,6 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) {launch(args);
     }
 }
