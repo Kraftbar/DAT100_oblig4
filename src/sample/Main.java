@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class Main extends Application {
     Spiller spiller;
     Random rand=new Random();
     int randX, randY = 0;
-    Godbit[] gotterier;
+    ArrayList<AbstraktRing> spillobjekter= new ArrayList<>();
 
 
     @Override
@@ -39,14 +40,14 @@ public class Main extends Application {
         Scene scene = new Scene(gridPane);
         primaryStage.setScene(scene);
 
-
         // tegner forhåpentligvis hele brettet på nytt
         rutenett= new Rute[dimenjon][dimenjon];
         genererBrett();
 
+        genererGodbit();
+
         // aner ikke, bedre her nede enn en smørje der oppe
         primaryStage.show();
-
 
         // vet ikke hvordan det funker
         EventHandler<KeyEvent> eventHandler = new EventHandler<KeyEvent>() {
@@ -83,24 +84,33 @@ public class Main extends Application {
     private void genererSpiller() {
         randX= rand.nextInt(dimenjon);
         randY= rand.nextInt(dimenjon);
-
-        System.out.println(randX+ " "+randY);
-
         spiller = new Spiller(randX,randY,str);
     //  gridPane.add(spiller.getNode(), spiller.getX(), spiller.getY());
-
     }
 
 
-    void generGodbit() {
+    void genererGodbit() {
         for (int i = 0; i > 5; i++){
             randX = rand.nextInt(dimenjon);
             randY = rand.nextInt(dimenjon);
-            //gotterier[0] = new Godbit(randX,randY,str);
-
+            spillobjekter.add(new Godbit(randX, randY, str));
+            AbstraktRing pekerTemp = spillobjekter.get(i);
+            gridPane.add(pekerTemp.getNode(), pekerTemp.getX(), pekerTemp.getY());
 
         }
     }
+
+    void generFiender() {
+        for (int i = 0; i > 1; i++){
+            randX = rand.nextInt(dimenjon);
+            randY = rand.nextInt(dimenjon);
+            spillobjekter.add(new Fiende(randX, randY, str));
+        }
+    }
+
+
+
+
 
     private void genererBrett() {
         for(int m=0;m<dimenjon;m++){
