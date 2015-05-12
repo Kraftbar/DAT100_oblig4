@@ -25,7 +25,6 @@ public class AbstraktRute implements Rute {
         }
 
         public void flyttHit(Spiller spiller) {
-        spiller.setPosisjon(posisjonBrett);
-        System.out.println("Hei du har flyttet til posisjon "+ posisjonBrett+ " paa brettet");
+        System.out.println(spiller.getNavn()+" fikk "+(posisjonBrett-spiller.getPosisjon())+" og har flyttet til posisjon "+ posisjonBrett+ " paa brettet");
     }
 }

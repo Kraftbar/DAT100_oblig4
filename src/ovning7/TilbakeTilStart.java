@@ -13,7 +13,7 @@ public class TilbakeTilStart extends AbstraktRute{
     public void flyttHit(Spiller spiller) {
         //      Kaller først på
         super.flyttHit(spiller);
-        System.out.println("Ups, Du havnet paa en Tilbake til start Rute " + 0 + " paa brettet");
+        System.out.println("Ups,"+spiller.getNavn()+" Du havnet paa en Tilbake til start Rute " + 0 + " paa brettet");
         spiller.setPosisjon(0);
 
     }

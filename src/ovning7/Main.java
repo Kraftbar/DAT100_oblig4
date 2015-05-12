@@ -31,18 +31,20 @@ public class Main {
         System.out.println("2 - utskriftAvSpillere");
         System.out.println("3 - utskriftAvRuter");
         System.out.println("4 - utskriftAvRuter");
-        System.out.println("5 - exit");
+        System.out.println("5 - legg til spiller");
+        System.out.println("6 - ");
+        System.out.println("7- ");
+        System.out.println("8 - exit");
         Scanner scanchoice = new Scanner(System.in);
         System.out.println();
-        System.out.println("Enter \"1\", \"2\", \"3\", \"4\" or \"5\"");
+        System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\" or \"8\"");
         int choiceentry = scanchoice.nextInt();
 
-        while (choiceentry != 6) {
+        while (choiceentry != 8) {
             choiceentry = scanchoice.nextInt();
 
-            if (choiceentry < 1 || choiceentry > 5) {
-
-                System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\" or \"6\"");
+            if (choiceentry < 1 || choiceentry > 8) {
+                System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\" or \"8\"");
             }
 
             else if(choiceentry == 1) {
@@ -58,12 +60,30 @@ public class Main {
 
             }
             else if(choiceentry == 5) {
+                leggTilSpiller(scanchoice);
+            }else if(choiceentry == 6) {
+
+            }else if(choiceentry == 7) {
+
+            } else if (choiceentry ==8){
                 break;
-            } else{
-                System.out.println("Enter \"1\", \"2\", \"3\" or \"4\"");
+
+            }
+            else{
+                System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\" or \"8\"");
             }
 
         }
+    }
+
+    private static void leggTilSpiller(Scanner scanchoice) {
+        scanchoice.nextLine();
+        System.out.println("Hva heter spilleren?");
+        String navn =scanchoice.nextLine();
+        System.out.println("Hvilken startposisjon skal du ha?");
+        int starttall =scanchoice.nextInt();
+        spillere.add(new Spiller(navn,starttall));
+
     }
 
 
@@ -71,7 +91,7 @@ public class Main {
         for (Spiller j : spillere) {
             terning.kast();
             int kast = terning.getVerdi();
-            j.setPosisjon(j.getPosisjon()+kast);
+            ruter.get(kast+j.getPosisjon()).flyttHit(j);
         }
     }
 
@@ -92,6 +112,9 @@ public class Main {
         }
 
     }
+
+
+
 
     private static void genererSpillere() {
         spillere = new ArrayList<>();

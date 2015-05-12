@@ -7,4 +7,10 @@ public class VanligRute extends AbstraktRute{
     public VanligRute(int posisjon) {
         super(posisjon);
     }
+
+    @Override
+    public void flyttHit(Spiller spiller) {
+        super.flyttHit(spiller);
+        spiller.setPosisjon(posisjonBrett);
+    }
 }

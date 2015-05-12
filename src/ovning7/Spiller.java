@@ -15,6 +15,11 @@ public class Spiller {
         posisjon = 0;
     }
 
+    public Spiller(String navn, int starttall) {
+        this.navn = navn;
+        this.posisjon = starttall;
+    }
+
     public String getNavn() {
         return navn;
     }
