@@ -2,9 +2,13 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <mapping directory="" vcs="Git" />
 =======
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
 >>>>>>> DAT100_Oblig10
+=======
+    <mapping directory="" vcs="" />
+>>>>>>> DAT100Oving7_ny
   </component>
 </project>

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <option name="DEFAULT_COMPILER" value="Javac" />
 >>>>>>> DAT100_Oblig10
+=======
+>>>>>>> DAT100Oving7_ny
     <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="!?*.java" />
@@ -16,9 +19,13 @@
       <entry name="!?*.kt" />
       <entry name="!?*.clj" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <entry name="!?*.aj" />
 =======
 >>>>>>> DAT100_Oblig10
+=======
+      <entry name="!?*.aj" />
+>>>>>>> DAT100Oving7_ny
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
@@ -27,8 +34,12 @@
     </annotationProcessing>
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </project>
 =======
 </project>
 
 >>>>>>> DAT100_Oblig10
+=======
+</project>
+>>>>>>> DAT100Oving7_ny

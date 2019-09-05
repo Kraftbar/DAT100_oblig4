@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ClientPropertiesManager">
     <properties class="javax.swing.AbstractButton">
       <property name="hideActionText" class="java.lang.Boolean" />
@@ -39,6 +40,8 @@
       <property name="caretWidth" class="java.lang.Integer" />
     </properties>
   </component>
+=======
+>>>>>>> DAT100Oving7_ny
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
@@ -53,6 +56,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+<<<<<<< HEAD
 =======
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
@@ -62,6 +66,8 @@
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
 >>>>>>> DAT100_Oblig10
+=======
+>>>>>>> DAT100Oving7_ny
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
